@@ -19,10 +19,28 @@ Directory Structure
 
 int main(void) {
   servoInit(); // Configures 16 bit registers for 50Hz PWM signal.
-  servoAttach(Y_SERVO);
+  servoAttach(Y_SERVO); 
   while(1) {
-    servoWriteY(0);
+    servoWriteY(0); // Write angle 0 to servo controlling Y axis
   }
   return 0;
 }
+```
+
+## How to compile and build
+You should only continue if you have a HELIX Flight Computer.
+### Build with Makefile
+
+Prerequisites
+- AVR-GCC
+- AVRDUDE
+
+To build:
+```
+make
+```
+
+To flash the bootloader with AVR Programmer:
+```
+make flash
 ```
