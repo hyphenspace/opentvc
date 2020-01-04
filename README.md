@@ -20,8 +20,10 @@ Directory Structure
 int main(void) {
   servoInit(); // Configures 16 bit registers for 50Hz PWM signal.
   servoAttach(Y_SERVO); 
+  servoAttach(Z_SERVO);
   while(1) {
     servoWriteY(0); // Write angle 0 to servo controlling Y axis
+    servoWwriteZ(0); // Write angle 0 to servo controlling Z axis
   }
   return 0;
 }
