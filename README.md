@@ -2,7 +2,7 @@
 
 
 ## What is spiral?
-spiral is a model rocket flight firmware that built to runs on the HELIX flightcomputer. The firmware features libaries that supports control for servos, USART, SPI and the on-board hardware. 
+spiral is a model rocket flight firmware that is built to runs on the HELIX Flight Computer. The firmware features libaries that supports control for servos, USART, SPI and the on-board hardware. 
 
 Directory Structure
 ------
