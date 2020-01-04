@@ -1,4 +1,4 @@
-![spiral icon](spiral.png)
+![spiral icon](https://i.imgur.com/8JeVKCG.png)
 
 
 ## What is spiral?
