@@ -1,6 +1,6 @@
 ![spiral icon](https://i.imgur.com/8JeVKCG.png)
 
-
+[![Build Status](https://travis-ci.com/akilhylton/spiral.svg?token=Mhdf3XXByqN3Nb1swBdo&branch=master)](https://travis-ci.com/akilhylton/spiral)
 ## What is spiral?
 spiral is a model rocket flight firmware that is built to runs on the HELIX Flight Computer. The firmware features libaries that supports control for servos, USART, SPI and the on-board hardware. 
 
