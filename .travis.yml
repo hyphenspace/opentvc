@@ -5,3 +5,10 @@ before_install:
 install:
   - sudo apt-get install -qq gcc-avr binutils-avr avr-libc
 script: make
+
+env:
+  global:
+    - CODECOV_TOKEN=:uuid-repo-token
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
