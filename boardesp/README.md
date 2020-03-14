@@ -1,3 +1,4 @@
 ## Dependencies
-
-`./get_sdk.sh`
+```
+./get_sdk.sh
+```
