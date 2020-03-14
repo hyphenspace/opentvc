@@ -4,18 +4,20 @@
 ## What is spiral?
 spiral is a model rocket flight firmware that is built to runs on the HELIX Flight Computer. The firmware features libaries that supports control for servos, USART, SPI and the on-board hardware. 
 
-Directory Structure
+## Directory Structure
+* board -- Code that runs on the ATmega328P
+* boardesp -- Code that runs on the ESP32
 ------
-    .
-    ├── servo # Library used for servo control
-    ├── usart # Library used for USART communication
-    ├── spi # Library used for SPI communication
-    ├── hardware # Library used to control on-board hardware 
+    board
+        ├── servo # Library used for servo control
+        ├── usart # Library used for USART communication
+        ├── spi # Library used for SPI communication
+        ├── hardware # Library used to control on-board hardware 
 
 
 ## Servo library usage example
 ```
-#include "servo/servo.h"
+#include "drivers/servo.h"
 
 int main(void) {
   servoInit(); // Configures 16 bit registers for 50Hz PWM signal.
@@ -29,20 +31,7 @@ int main(void) {
 }
 ```
 
-## How to compile and build
-You should only continue if you have a HELIX Flight Computer.
-### Build with Makefile
-
 Prerequisites
 - AVR-GCC
 - AVRDUDE
 
-To build:
-```
-make
-```
-
-To flash the bootloader with AVR Programmer:
-```
-make flash
-```
