@@ -5,5 +5,5 @@ before_install:
 install:
     sudo apt-get install -qq gcc-avr binutils-avr avr-libc
 before_script:
-    cd boards
+    cd board
 script: make
