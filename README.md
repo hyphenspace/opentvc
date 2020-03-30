@@ -17,10 +17,16 @@ The firmware features libaries that supports control for servos, USART, SPI and 
         ├── hardware # Library used to control on-board hardware 
 
 ## spiral hardware uses Bluetooth Low Energy
-Data is sent from an AVR microcontroller via UART and received by Silicon Lab's BGX13P BLE module. \
+
+Data is sent from an AVR microcontroller via UART and received by Nordic nRF5832 BLE module. \
 This exchage is biodirectional so data can also be sent out from the BLE module to AVR microcontroller.
 
-![Imgur](https://i.imgur.com/SPr4X3p.png)
+# Run with Docker
+```
+docker build -t spiral:1.0 .
+docker run -it spiral:1.0
+```
+
 ## Servo library usage example
 ```
 #include "drivers/servo.h"
@@ -40,4 +46,3 @@ int main(void) {
 Prerequisites
 - AVR-GCC
 - AVRDUDE
-

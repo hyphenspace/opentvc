@@ -1,9 +1,8 @@
 language: c
-
-before_install:
+services: docker
+before_install: 
     sudo apt-get update -qq  
-install:
-    sudo apt-get install -qq gcc-avr binutils-avr avr-libc
-before_script:
-    cd board
+    docker build -t spiral:1.0 .
+install: sudo apt-get install -qq gcc-avr binutils-avr avr-libc
+before_script: cd board
 script: make
