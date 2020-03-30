@@ -1,4 +1,4 @@
-#include "../drivers/spi.h"
+#include "../driver/spi.h"
 // SPI Library 
 void spiInit(void) {
    // Set SPI Data direction as output   

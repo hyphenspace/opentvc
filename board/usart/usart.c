@@ -1,5 +1,5 @@
 #include <avr/io.h>
-#include "../drivers/usart.h"
+#include "../driver/usart.h"
 
 void usartInit(unsigned int ubrr) {
   UBRR0H = (ubrr >> 8);

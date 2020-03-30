@@ -3,10 +3,10 @@
  Created by Akil Hylton El
 */
 #include <math.h>
-#include "drivers/servo.h"
-#include "drivers/usart.h"
-#include "drivers/spi.h"
-#include "drivers/hardware.h"
+#include "driver/servo.h"
+#include "driver/usart.h"
+#include "driver/spi.h"
+#include "driver/hardware.h"
 
 static FILE mystdout = FDEV_SETUP_STREAM(usartTransmit, NULL, _FDEV_SETUP_WRITE); // ONLY HERE FOR DEBUGGING. 
 unsigned char junk, morejunk;

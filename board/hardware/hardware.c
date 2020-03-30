@@ -1,4 +1,4 @@
-#include "../drivers/hardware.h"
+#include "../driver/hardware.h"
 
 void initStatusLED(void) {
   DDRC |= (1 << DDC0);

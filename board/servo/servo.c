@@ -1,4 +1,4 @@
-#include "../drivers/servo.h"
+#include "../driver/servo.h"
 
 signed long map(signed long angle, unsigned long in_min, unsigned long in_max, unsigned long out_min, unsigned long out_max) {
   static signed int value = 0;
