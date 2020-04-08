@@ -6,28 +6,29 @@
 ## What is spiral?
 spiral is a model rocket flight firmware that is built to runs on the HELIX Flight Computer. \
 The firmware features libaries that supports control for servos, USART, SPI and the on-board hardware. 
-
-## Directory Structure
-* board -- Code that runs on the ATmega328P
-* boardesp -- Code that runs on the ESP32
-------
-    board
-        ├── servo # Library used for servo control
-        ├── usart # Library used for USART communication
-        ├── spi # Library used for SPI communication
-        ├── hardware # Library used to control on-board hardware 
-
 ## spiral hardware uses Bluetooth Low Energy
-
 Data is sent from an AVR microcontroller via UART and received by Nordic nRF5832 BLE module. \
 This exchage is biodirectional so data can also be sent out from the BLE module to AVR microcontroller.
 
-# Run with Docker
+# Installation
+
+## Running in Docker
+1. Build docker environment
 ```
 docker build -t spiral:1.0 .
+```
+2. Run docker environment 
+```
 docker run -it spiral:1.0
 ```
-
+3. Change directory to where source file sits
+```
+cd board 
+```
+4. Build firmware
+```
+make 
+```
 ## Servo library usage example
 ```
 #include "drivers/servo.h"
@@ -44,6 +45,12 @@ int main(void) {
 }
 ```
 
-Prerequisites
-- AVR-GCC
-- AVRDUDE
+## Directory Structure
+* board -- Code that runs on the ATmega328P
+------
+    board
+        ├── servo # Library used for servo control
+        ├── usart # Library used for USART communication
+        ├── spi # Library used for SPI communication
+        ├── hardware # Library used to control on-board hardware 
+        ├── firmware # Folder that holds compiled firmware
