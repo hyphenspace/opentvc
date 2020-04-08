@@ -29,7 +29,7 @@ cd board
 ```
 make 
 ```
-## Servo library usage example
+# Servo library usage example
 ```
 #include "drivers/servo.h"
 
@@ -45,7 +45,7 @@ int main(void) {
 }
 ```
 
-## Directory Structure
+# Directory Structure
 * board -- Code that runs on the ATmega328P
 ------
     board
