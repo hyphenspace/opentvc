@@ -1,9 +1,7 @@
-![spiral icon](https://i.imgur.com/8JeVKCG.png)
-
 ![spiral tests](https://github.com/hyphenspace/spiral/workflows/spiral%20tests/badge.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-## What is spiral?
-spiral is a model rocket flight firmware that is built to runs on the HELIX Flight Computer. \
+## What is opentvc?
+Open thrust vector control (opentvc) is a model rocket flight firmware that is built to runs on the spiral flight computer. \
 The firmware features libaries that supports control for servos, USART, SPI and the on-board hardware. 
 ## spiral hardware uses Bluetooth Low Energy
 Data is sent from an AVR microcontroller via UART and received by Nordic nRF5832 BLE module. \
