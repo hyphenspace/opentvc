@@ -10,9 +10,10 @@ SERVO_LIB=servo/servo.c
 USART_LIB=usart/usart.c
 SPI_LIB=spi/spi.c
 HARDWARE_LIB=hardware/hardware.c
+TIME_LIB=time/time.c
 
 all:
-	${CC} ${CFLAGS} ${SRC} ${SERVO_LIB} ${USART_LIB} ${SPI_LIB} ${HARDWARE_LIB} -o firmware/${TARGET}.bin -std=c99
+	${CC} ${CFLAGS} ${SRC} ${SERVO_LIB} ${TIME_LIB} ${USART_LIB} ${SPI_LIB} ${HARDWARE_LIB} -o firmware/${TARGET}.bin -std=c99
 	${OBJCOPY} -j .text -j .data -O ihex firmware/${TARGET}.bin firmware/${TARGET}.hex
 
 flash:
