@@ -39,6 +39,7 @@ void setupLSM9DS1(void) {
 	who_am_i_mag = spiRead();
 	SLAVE_DESELECT_MAG;
 	_delay_ms(1000);
+
 	if(who_am_i == 104 && who_am_i_mag == 61) {
 		printf("LSM9DS1 WORKING PROPERLY!\n");
 	} 
@@ -47,4 +48,43 @@ void setupLSM9DS1(void) {
 	}
 	
 }
+
+
+lsm9ds1Vector_t getAccelData(void) {
+	SLAVE_SELECT;
+	spi(OUT_X_H_XL);
+	accel_x_high = spiRead();
+	spi(OUT_X_L_XL);
+	accel_x_low = spiRead();
+	SLAVE_DESELECT;
+
+	SLAVE_SELECT;
+	spi(OUT_Y_H_XL);
+	accel_y_high = spiRead();
+	spi(OUT_Y_L_XL);
+	accel_y_low = spiRead();
+	SLAVE_DESELECT;
+
+	SLAVE_SELECT;
+	spi(OUT_Z_H_XL);
+	accel_z_high = spiRead();
+	spi(OUT_Z_L_XL);
+	accel_z_low = spiRead();
+	SLAVE_DESELECT;
+
+	raw_accel_x = (accel_x_high << 8) | accel_x_low;
+	raw_accel_y = (accel_y_high << 8) | accel_y_low;
+	raw_accel_z = (accel_z_high << 8) | accel_z_low;
+	
+	x_g_force = ((float)raw_accel_x * ACCEL_SENSITIVITY) * 0.001;
+	y_g_force = ((float)raw_accel_y * ACCEL_SENSITIVITY) * 0.001;
+	z_g_force = ((float)raw_accel_z * ACCEL_SENSITIVITY) * 0.001;
+
+	accelData.x = x_g_force;
+	accelData.y = y_g_force;
+	accelData.z = z_g_force;
+	
+	return accelData;
+}
+
 

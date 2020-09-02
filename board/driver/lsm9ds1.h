@@ -41,6 +41,7 @@
 #define OUT_Z_H_M 0b10101101
 #define OUT_Z_L_M 0b10101100
 
+#define ACCEL_SENSITIVITY 0.061 // Linear acceleration 2g
 #define TEMP_SENSITIVITY 16
 // Gyro offsets
 #define GYRO_X_OFFSET 4.5
@@ -62,7 +63,7 @@ volatile short raw_gyro_x, raw_gyro_y, raw_gyro_z;
 
 unsigned char who_am_i, who_am_i_mag, mag_status;
 
-volatile float x_angle, y_angle;
+volatile float x_g_force, y_g_force, z_g_force;
 volatile float celsius;
 
 
@@ -77,10 +78,10 @@ lsm9ds1Vector_t accelData;
 lsm9ds1Vector_t magData;
 
 void setupLSM9DS1(void);
-void getAccelData(void);
+lsm9ds1Vector_t getAccelData(void);
 lsm9ds1Vector_t getGyroData(void);
+lsm9ds1Vector_t getMagData(void);
 void getTempData(void);
-void getMagData(void);
 
 #endif
 
