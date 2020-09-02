@@ -41,12 +41,13 @@
 #define OUT_Z_H_M 0b10101101
 #define OUT_Z_L_M 0b10101100
 
+#define GYRO_SENSITIVITY 8.75 // Angular rate 245 dps
 #define ACCEL_SENSITIVITY 0.061 // Linear acceleration 2g
 #define TEMP_SENSITIVITY 16
 // Gyro offsets
 #define GYRO_X_OFFSET 4.5
 #define GYRO_Y_OFFSET -2.2
-#define GYRO_Z_OFFSET 6.5
+#define GYRO_Z_OFFSET 6.6
 
 unsigned char accel_x_high, accel_y_high, accel_z_high;
 unsigned char accel_x_low, accel_y_low, accel_z_low;

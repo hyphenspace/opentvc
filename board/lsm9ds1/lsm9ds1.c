@@ -87,4 +87,40 @@ lsm9ds1Vector_t getAccelData(void) {
 	return accelData;
 }
 
+lsm9ds1Vector_t getGyroData(void) {
+	SLAVE_SELECT;
+	spi(OUT_X_H_G);
+	gyro_x_high = spiRead();
+	spi(OUT_X_L_G);
+	gyro_x_low = spiRead();
+	SLAVE_DESELECT;
+
+	SLAVE_SELECT;
+	spi(OUT_Y_H_G);
+	gyro_y_high = spiRead();
+	spi(OUT_Y_L_G);
+	gyro_y_low = spiRead();
+	SLAVE_DESELECT;
+
+	SLAVE_SELECT;
+	spi(OUT_Z_H_G);
+	gyro_z_high = spiRead();
+	spi(OUT_Z_L_G);
+	gyro_z_low = spiRead();
+	SLAVE_DESELECT;
+
+	raw_gyro_x = (gyro_x_high << 8) | gyro_x_low;
+	raw_gyro_y = (gyro_y_high << 8) | gyro_y_low;
+	raw_gyro_z = (gyro_z_high << 8) | gyro_z_low;
+	
+	gyroData.x = ((float)raw_gyro_x * GYRO_SENSITIVITY) * 0.001;
+	gyroData.y = ((float)raw_gyro_y * GYRO_SENSITIVITY) * 0.001;
+	gyroData.z = ((float)raw_gyro_z * GYRO_SENSITIVITY) * 0.001;	
+	
+	gyroData.x -= GYRO_X_OFFSET;
+	gyroData.y -= GYRO_Y_OFFSET;
+	gyroData.z -= GYRO_Z_OFFSET;
+		
+	return gyroData;
+}
 
