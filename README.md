@@ -1,4 +1,4 @@
-![spiral tests](https://github.com/hyphenspace/spiral/workflows/spiral%20tests/badge.svg)
+![opentvc tests](https://github.com/hyphenspace/opentvc/workflows/opentvc%20tests/badge.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ## What is opentvc?
 Open thrust vector control (opentvc) is a model rocket flight firmware that is built to runs on the spiral flight computer. \
