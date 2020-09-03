@@ -5,7 +5,6 @@
 #include <math.h>
 #include <util/delay.h>
 #include "spi.h"
-#include "time.h"
 
 
 #define WHO_AM_I 0b10001111 

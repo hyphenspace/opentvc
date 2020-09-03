@@ -1,25 +1,48 @@
 #include "../driver/time.h"
 
-volatile unsigned long timer_millis;
+volatile unsigned long timer0_overflow_count = 0;
+volatile unsigned long timer0_millis = 0;
 
-ISR(TIMER1_COMPA_vect) {
-	timer_millis++;
-}
+static unsigned char timer0_fract = 0;
+volatile unsigned long m;
+volatile unsigned long f;
 
-void init_millis(unsigned long f_cpu) {
-	unsigned long ctc_overflow_match;
-	ctc_overflow_match = ((f_cpu / 1000) / 8);
-	TCCR1B |= ((1 << WGM12) | (1 << CS11));
-	TIMSK1 |= (1 << OCIE1A);
-	OCR1AH = (ctc_overflow_match >> 8);
-	OCR1AL = ctc_overflow_match;
-}
 
-unsigned long millis(void) {
-	unsigned long millis_count;
-
-	ATOMIC_BLOCK(ATOMIC_FORCEON) {
-		millis_count = timer_millis;
+ISR(TIMER0_OVF_vect) {
+    m = timer0_millis;
+	f = timer0_fract;
+	m += MILLIS_INC;
+	f += FRACT_INC;
+	if (f >= FRACT_MAX) {
+		f -= FRACT_MAX;
+		m += 1;
 	}
-	return millis_count;
+	timer0_fract = f;
+	timer0_millis = m;
+    timer0_overflow_count++;
+}
+
+void init_micros(void) {
+	sei();
+	TCCR0A |= ((1 << WGM00) | (1 << WGM01));
+	TCCR0B |= ((1 << CS00) | (1 << CS01));
+	TIMSK0 |= (1 << TOIE0);
+}
+
+
+unsigned long micros(void) {
+
+	unsigned long m;
+	unsigned char oldSREG = SREG, t;
+
+	cli();
+	m = timer0_overflow_count;
+	t = TCNT0;
+
+	if((TIFR0 & (1 << TOV0)) && (t < 255)) {
+		m++;
+	}
+	SREG = oldSREG;
+
+	return ((m << 8) + t) * (64 / clockCyclesPerMicrosecond());
 }
