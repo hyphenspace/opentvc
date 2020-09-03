@@ -83,7 +83,8 @@ lsm9ds1Vector_t getAccelData(void) {
 	accelData.x = x_g_force;
 	accelData.y = y_g_force;
 	accelData.z = z_g_force;
-	
+	accelData.roll = atan2(accelData.y, accelData.x) * 180 / M_PI; // Convert from radians to degrees by multiplying the result by 180 / PI	
+	accelData.pitch = atan2(-accelData.x, sqrt(accelData.y * accelData.y + accelData.z * accelData.z)) * 180 / M_PI; 
 	return accelData;
 }
 

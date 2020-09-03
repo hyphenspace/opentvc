@@ -20,9 +20,9 @@ int main (void) {
 	setupLSM9DS1();
 	sei();
   while(1) {
-	 g = getGyroData();
-	 //a = getAccelData();
-	 printf("g_x: %f, g_y: %f, g_z: %f\n", g.x, g.y, g.z);	
+	 //g = getGyroData();
+	 a = getAccelData();
+	 printf("a_pitch: %f, a_roll: %f\n", a.pitch, a.roll);	
 	_delay_ms(150);
 	}	
   return 0;
