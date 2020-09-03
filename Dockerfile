@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 
-WORKDIR usr/spiral/
+WORKDIR usr/opentvc/
 COPY board/ . 
 
 RUN apt-get update && apt-get install -y \
