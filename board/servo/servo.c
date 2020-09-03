@@ -6,6 +6,7 @@ signed long map(signed long angle, unsigned long in_min, unsigned long in_max, u
   return value;
 }
 
+
 void servoInit(void) {
   TCCR1A |= ((1 << COM1A1) | (1 << COM1B1) | (1 << WGM11)); 
   TCCR1B |= ((1 << WGM12) | (1 << WGM13) | (1 << CS11));

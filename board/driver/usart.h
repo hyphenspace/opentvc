@@ -8,8 +8,5 @@
 
 char buffer[BUFFER_LEN];
 void usartInit(unsigned int ubrr);
-// void usartTransmit(unsigned char data);
 void usartTransmit(unsigned char data, FILE *stream);
-//void usartPrint(char *string);
-//void usartPrintInt(int num);
 unsigned char usartReceive(void);
