@@ -1,4 +1,4 @@
-name: spiral tests
+name: opentvc tests
 
 on:
   push:
@@ -15,5 +15,5 @@ jobs:
     - uses: actions/checkout@v2
     - name: Install AVR dependencies
       run: cd board && sh install.sh
-    - name: Build spiral firmware
+    - name: Build opentvc firmware
       run: cd board && make 

@@ -72,6 +72,8 @@ typedef struct vector_s {
     volatile float x;
     volatile float y;
     volatile float z;
+    volatile float pitch;
+    volatile float roll;
 } lsm9ds1Vector_t;
 
 lsm9ds1Vector_t gyroData;
