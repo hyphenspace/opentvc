@@ -17,3 +17,17 @@ jobs:
       run: cd board && sh install.sh
     - name: Build opentvc firmware
       run: cd board && make 
+
+  docker-push:
+        name: docker push
+        runs-on: ubuntu-18.04
+        steps:
+        - uses: actions/checkout@v2     
+                   
+        - name: Login into DockerHub
+          run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
+        - name: Build for DockerHub
+          run: docker build -t ahylton/opentvc:latest .
+        - name: Push to DockerHub
+          run: docker push ahylton/opentvc:latest
+      
