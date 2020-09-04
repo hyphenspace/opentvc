@@ -9,10 +9,8 @@ void usartInit(unsigned int ubrr) {
   UCSR0C = ((1 << UCSZ01) | (1 << UCSZ00));
 }
 
-void usartTransmit(unsigned char data, FILE *stream) {
-  if (data == '\n') { 
-    usartTransmit('\r', stream);
-  }
+
+void usartTransmit(unsigned char data) {
   while(!(UCSR0A & (1 << UDRE0)));
   UDR0 = data;
 }
@@ -21,17 +19,9 @@ unsigned char usartReceive(void) {
   while(!(UCSR0A & (1 << RXC0)));
   return UDR0;
 }
-/*
-void usartPrint(char *string) {
-  while (*string != 0x00) {
-    usartTransmit(*string++); 
-  }
-}
 
-void usartPrintInt(int num) {
-  itoa(num, buffer, 10);
-  usartPrint(buffer);
-  usartPrint("\n");
-  _delay_ms(1000);  
+int print(char c, FILE *stream) {
+  while(!(UCSR0A & (1 << UDRE0)));
+  UDR0 = c;
+  return 0;
 }
-*/

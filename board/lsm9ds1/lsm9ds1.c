@@ -1,5 +1,7 @@
 #include "../driver/lsm9ds1.h"
 
+//unsigned long time;
+
 void setupLSM9DS1(void) {
 	spiInit();
 	// Enable Mag
@@ -46,7 +48,7 @@ void setupLSM9DS1(void) {
 	else {
 		printf("Something is wrong, check wiring :(\n");
 	}
-	
+	//time = micros();
 }
 
 
@@ -113,14 +115,17 @@ lsm9ds1Vector_t getGyroData(void) {
 	raw_gyro_x = (gyro_x_high << 8) | gyro_x_low;
 	raw_gyro_y = (gyro_y_high << 8) | gyro_y_low;
 	raw_gyro_z = (gyro_z_high << 8) | gyro_z_low;
-	
-	gyroData.x = ((float)raw_gyro_x * GYRO_SENSITIVITY) * 0.001;
-	gyroData.y = ((float)raw_gyro_y * GYRO_SENSITIVITY) * 0.001;
-	gyroData.z = ((float)raw_gyro_z * GYRO_SENSITIVITY) * 0.001;	
-	
+
+	//double delta_t = (double)(micros() - time) / 1000000;
+		
+	gyroData.x = ((float)raw_gyro_x * GYRO_SENSITIVITY);
+	gyroData.y = ((float)raw_gyro_y * GYRO_SENSITIVITY);
+	//gyroData.z = ((float)raw_gyro_z * GYRO_SENSITIVITY) * delta_t;	
+	//time = micros();
+	//printf("%f\n", delta_t);	
 	gyroData.x -= GYRO_X_OFFSET;
 	gyroData.y -= GYRO_Y_OFFSET;
-	gyroData.z -= GYRO_Z_OFFSET;
+	//gyroData.z -= GYRO_Z_OFFSET;
 		
 	return gyroData;
 }
