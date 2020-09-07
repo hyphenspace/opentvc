@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y \
     gcc-avr \
     binutils-avr \
     avr-libc \
-    avrdude
+    avrdude \
+    vim
  
 RUN make
