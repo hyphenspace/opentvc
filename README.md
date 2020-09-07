@@ -1,4 +1,5 @@
 ![opentvc tests](https://github.com/hyphenspace/opentvc/workflows/opentvc%20tests/badge.svg)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e863859b-85d2-415b-876f-0b4897d100e2/deploy-status)](https://app.netlify.com/sites/opentvc/deploys)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ## What is opentvc?
 Open thrust vector control (opentvc) is a model rocket flight firmware that is built to runs on the spiral flight computer. \
