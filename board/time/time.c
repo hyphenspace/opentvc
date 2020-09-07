@@ -5,7 +5,7 @@
  *  This library contains a micros function used for timing events.
  *  @{
  */
-i
+
 volatile unsigned long timer0_overflow_count = 0;
 volatile unsigned long timer0_millis = 0;
 
