@@ -1,5 +1,12 @@
 #include "../driver/lsm9ds1.h"
 
+
+/** @defgroup group0 LSM9DS1 Library
+ *  This library contains all the neccessary code for using the triple-axis accelerometer/magnetometer/gyroscope LSM9DS1.
+ *  @{
+ */
+
+/** This function enables the gyroscope, accelerometer and magnetometer. */
 void setupLSM9DS1(void) {
 	spiInit();
 	// Enable Mag
@@ -46,10 +53,10 @@ void setupLSM9DS1(void) {
 	else {
 		printf("Something is wrong, check wiring :(\n");
 	}
-	
+	//time = micros();
 }
 
-
+/** This function retrieves the raw accelerometer data and converts it to pitch and roll in euler angles.  */
 lsm9ds1Vector_t getAccelData(void) {
 	SLAVE_SELECT;
 	spi(OUT_X_H_XL);
@@ -88,6 +95,7 @@ lsm9ds1Vector_t getAccelData(void) {
 	return accelData;
 }
 
+/** This function retrieves the raw gyroscope data and converts it to degrees per second. */
 lsm9ds1Vector_t getGyroData(void) {
 	SLAVE_SELECT;
 	spi(OUT_X_H_G);
@@ -113,14 +121,17 @@ lsm9ds1Vector_t getGyroData(void) {
 	raw_gyro_x = (gyro_x_high << 8) | gyro_x_low;
 	raw_gyro_y = (gyro_y_high << 8) | gyro_y_low;
 	raw_gyro_z = (gyro_z_high << 8) | gyro_z_low;
-	
-	gyroData.x = ((float)raw_gyro_x * GYRO_SENSITIVITY) * 0.001;
-	gyroData.y = ((float)raw_gyro_y * GYRO_SENSITIVITY) * 0.001;
-	gyroData.z = ((float)raw_gyro_z * GYRO_SENSITIVITY) * 0.001;	
-	
+
+	//double delta_t = (double)(micros() - time) / 1000000;
+		
+	gyroData.x = ((float)raw_gyro_x * GYRO_SENSITIVITY);
+	gyroData.y = ((float)raw_gyro_y * GYRO_SENSITIVITY);
+	//gyroData.z = ((float)raw_gyro_z * GYRO_SENSITIVITY) * delta_t;	
+	//time = micros();
+	//printf("%f\n", delta_t);	
 	gyroData.x -= GYRO_X_OFFSET;
 	gyroData.y -= GYRO_Y_OFFSET;
-	gyroData.z -= GYRO_Z_OFFSET;
+	//gyroData.z -= GYRO_Z_OFFSET;
 		
 	return gyroData;
 }

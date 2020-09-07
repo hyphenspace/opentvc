@@ -1,6 +1,6 @@
-This part of the repo holds the documention for Panflute which includes header files and function names.
+This part of the repo holds the documention for opentvc which includes header files and function names.
 
-### Getting started 
+## Getting started 
 `$ doxygen`
 
 `$ open html/index.html`

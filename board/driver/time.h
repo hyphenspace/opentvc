@@ -1,3 +1,6 @@
+#ifndef TIME_H
+#define TIME_H
+
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <util/atomic.h>
@@ -19,3 +22,5 @@
 
 void init_micros(void);
 unsigned long micros(void);
+
+#endif // TIME_H

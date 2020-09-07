@@ -1,10 +1,11 @@
-#ifndef LSM9DS1 
-#define LSM9DS1
+#ifndef LSM9DS1_H
+#define LSM9DS1_H
 
 #include <stdio.h>
 #include <math.h>
 #include <util/delay.h>
 #include "spi.h"
+#include "time.h"
 
 
 #define WHO_AM_I 0b10001111 
@@ -85,5 +86,5 @@ lsm9ds1Vector_t getGyroData(void);
 lsm9ds1Vector_t getMagData(void);
 void getTempData(void);
 
-#endif
+#endif // LSM9DS1_H 
 

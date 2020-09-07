@@ -1,3 +1,6 @@
+#ifndef SPI_H
+#define SPI_H
+
 #include <avr/io.h>
 #include "lsm9ds1.h"
 
@@ -19,5 +22,6 @@
 
 unsigned char junk, status;
 void spiInit(void);
-unsigned int spi_16bit(unsigned int data);
 unsigned char spi(unsigned char data);
+
+#endif // SPI_H

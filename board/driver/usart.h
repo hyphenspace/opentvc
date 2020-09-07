@@ -1,3 +1,7 @@
+
+#ifndef USART_H
+#define USART_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <util/delay.h>
@@ -8,8 +12,8 @@
 
 char buffer[BUFFER_LEN];
 void usartInit(unsigned int ubrr);
-// void usartTransmit(unsigned char data);
-void usartTransmit(unsigned char data, FILE *stream);
-//void usartPrint(char *string);
-//void usartPrintInt(int num);
+void usartTransmit(unsigned char data);
+int print(char c, FILE *stream);
 unsigned char usartReceive(void);
+
+#endif // USART_H
