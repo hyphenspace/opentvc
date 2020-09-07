@@ -1,5 +1,11 @@
 #include "../driver/time.h"
 
+
+/** @defgroup group3 TinyTime Library
+ *  This library contains a micros function used for timing events.
+ *  @{
+ */
+i
 volatile unsigned long timer0_overflow_count = 0;
 volatile unsigned long timer0_millis = 0;
 
@@ -22,6 +28,7 @@ ISR(TIMER0_OVF_vect) {
     timer0_overflow_count++;
 }
 
+/** Initailzes registors needed for micros function.*/
 void init_micros(void) {
 	sei();
 	TCCR0A |= ((1 << WGM00) | (1 << WGM01));
@@ -29,7 +36,7 @@ void init_micros(void) {
 	TIMSK0 |= (1 << TOIE0);
 }
 
-
+/** Returns the number of microseconds since the Arduino board began running the current program. This number will overflow (go back to zero), after approximately 70 minutes. */
 unsigned long micros(void) {
 
 	unsigned long m;
@@ -46,3 +53,5 @@ unsigned long micros(void) {
 
 	return ((m << 8) + t) * (64 / clockCyclesPerMicrosecond());
 }
+
+/** @} */ // end of group3

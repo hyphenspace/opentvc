@@ -1,6 +1,6 @@
 #include "../driver/hardware.h"
 
-/** @defgroup group2 Hardware Library
+/** @defgroup group6 Hardware Library
  *  This library contains all the neccessary code for on board status indications.
  *  @{
  */

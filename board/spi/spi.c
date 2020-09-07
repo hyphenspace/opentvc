@@ -1,7 +1,7 @@
 #include "../driver/spi.h"
 
 
-/** @defgroup group1 SPI Library
+/** @defgroup group2 SPI Library
  *  This library contains all the neccessary code for Serial Peripheral Interface communication.
  *  @{
  */
@@ -22,4 +22,4 @@ unsigned char spi(unsigned char data) {
     return SPDR;
 }
 
-/** @} */ // end of group1
+/** @} */ // end of group2
