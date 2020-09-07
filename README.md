@@ -13,11 +13,11 @@ This exchage is biodirectional so data can also be sent out from the BLE module 
 ## Running in Docker
 1. Build docker environment
 ```
-docker build -t opentvc:0.2 .
+docker build -t opentvc:0.4 .
 ```
 2. Run docker environment 
 ```
-docker run -it opentvc:0.2
+docker run -it opentvc:0.4
 ```
 3. Change directory to where source file sits
 ```
@@ -27,7 +27,7 @@ cd board
 ```
 make 
 ```
-# Servo library usage example
+## Servo library usage example
 ```
 #include "drivers/servo.h"
 
@@ -44,11 +44,13 @@ int main(void) {
 ```
 
 # Directory Structure
-* board -- Code that runs on the ATmega328P
+* board -- Code that runs on the ATmega328/328P
 ------
     board
+        ├── lsm9ds1 # Library used for retrieving IMU data.
         ├── servo # Library used for servo control
         ├── usart # Library used for USART communication
+        ├── time # Library used timing events
         ├── spi # Library used for SPI communication
         ├── hardware # Library used to control on-board hardware 
         ├── firmware # Folder that holds compiled firmware
