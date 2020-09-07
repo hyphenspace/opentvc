@@ -43,8 +43,9 @@ int main(void) {
 }
 ```
 
-# Directory Structure
+## Directory Structure
 * board -- Code that runs on the ATmega328/328P
+* doc -- Doxygen documentation folder
 ------
     board
         ├── lsm9ds1 # Library used for retrieving IMU data.
