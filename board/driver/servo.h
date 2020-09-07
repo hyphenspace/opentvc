@@ -1,3 +1,6 @@
+#ifndef SERVO_H
+#define SERVO_H
+
 #include <avr/io.h>
 #include <stdint.h>
 #include <util/delay.h>
@@ -16,3 +19,5 @@ void servoAttach(uint16_t port); // Flip port bit on to attach servo for usage.
 void servoWriteY(signed int angle); // write angle value to X axis 
 void servoWriteZ(signed int angle); // writes angle value to Z axis
 signed long map(signed long angle, unsigned long in_min, unsigned long in_max, unsigned long out_min, unsigned long out_max);
+
+#endif // SERVO_H

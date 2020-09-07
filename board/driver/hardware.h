@@ -1,3 +1,6 @@
+#ifndef HARDWARE_H
+#define HARDWARE_H
+
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <util/delay.h>
@@ -12,3 +15,5 @@
 void blueStatusLED(void);
 void initStatusLED(void);
 void initBuzzer(void);
+
+endif // HARDWARE_H
