@@ -1,7 +1,12 @@
 #include "../driver/lsm9ds1.h"
 
-//unsigned long time;
 
+/** @defgroup group0 LSM9DS1 Library
+ *  This library contains all the neccessary code for using the triple-axis accelerometer/magnetometer/gyroscope LSM9DS1.
+ *  @{
+ */
+
+/** This function enables the gyroscope, accelerometer and magnetometer. */
 void setupLSM9DS1(void) {
 	spiInit();
 	// Enable Mag
@@ -51,7 +56,7 @@ void setupLSM9DS1(void) {
 	//time = micros();
 }
 
-
+/** This function retrieves the raw accelerometer data and converts it to pitch and roll in euler angles.  */
 lsm9ds1Vector_t getAccelData(void) {
 	SLAVE_SELECT;
 	spi(OUT_X_H_XL);
@@ -90,6 +95,7 @@ lsm9ds1Vector_t getAccelData(void) {
 	return accelData;
 }
 
+/** This function retrieves the raw gyroscope data and converts it to degrees per second. */
 lsm9ds1Vector_t getGyroData(void) {
 	SLAVE_SELECT;
 	spi(OUT_X_H_G);
