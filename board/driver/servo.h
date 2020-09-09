@@ -12,6 +12,8 @@
 #define DEFAULT_PULSE_WIDTH 3050
 #define MIN_ANGLE -90
 #define MAX_ANGLE 90
+#define Y_SERVO PB1
+#define Z_SERVO PB2
 
 void servoInit(void); // Configures 16 bit PWM Registers for 50Hz 
 void servoAttach(uint16_t port); // Flip port bit on to attach servo for usage. 
