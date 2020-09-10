@@ -16,4 +16,4 @@ void blueStatusLED(void);
 void initStatusLED(void);
 void initBuzzer(void);
 
-endif // HARDWARE_H
+#endif // HARDWARE_H
