@@ -1,8 +1,7 @@
 /* 
- spiral's AVR firmware 
+ opentvc AVR firmware 
  Created by Akil Hylton El
 */
-#include <math.h>
 #include <avr/interrupt.h>
 #include "driver/servo.h"
 #include "driver/usart.h"
@@ -17,8 +16,8 @@ int main (void) {
 	    sei();
 	    usartInit(MYUBRR);
 	    stdout = &mystdout;
-		servoInit();
-		servoAttach(Y_SERVO);
+	    servoInit();
+	    servoAttach(Y_SERVO);
 	    setupLSM9DS1();
   	while(1) {
 		a = getAccelData();
