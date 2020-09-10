@@ -1,4 +1,4 @@
-name: clang-format Check
+name: clang-format
 on: [push]
 jobs:
   formatting-check:
@@ -7,4 +7,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Run clang-format style check for C programs.
-      uses: jidicula/clang-format-action@master
+      run: cd board && clang-format -i *.c 
