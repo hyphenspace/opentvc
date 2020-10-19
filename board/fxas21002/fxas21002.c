@@ -12,13 +12,13 @@ void setupFXAS21002(void) {
 	spi(GYRO_STATUS);
 	who_am_i = spiRead();
 	SLAVE_DESELECT_GYRO;
-    _delay_ms(1000);	
+    	_delay_ms(1000);	
 	if(who_am_i == 124) {
-		printf("FXAS21002 is working properly!\n");
+	    printf("FXAS21002 is working properly!\n");
 	    printf("WHO_AM_I is %d\n", who_am_i);
 	} else {
-		printf("Something is wrong, check wiring :(\n");
-   	    printf("WHO_AM_I is %d but should be 124. Try again!\n");
+	    printf("Something is wrong, check wiring :(\n");
+   	    printf("WHO_AM_I is %d but should be 124. Try again!\n", who_am_i);
 	}
 }
 
