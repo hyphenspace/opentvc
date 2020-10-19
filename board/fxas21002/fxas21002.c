@@ -53,7 +53,7 @@ void getGyroData(void) {
 		_delay_ms(100);
 }
 
-/** This function retrieves the gyroscopes temperature value in celsius. **/
+/** This function retrieves the gyroscope's temperature value in celsius. **/
 void getGyroTemp(void) {
 		SLAVE_SELECT_GYRO;
 		spi(GYRO_TEMP);
