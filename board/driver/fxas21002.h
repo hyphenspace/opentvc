@@ -23,7 +23,7 @@ unsigned char gyro_x_low, gyro_y_low, gyro_z_low;
 unsigned short raw_gyro_x, raw_gyro_y, raw_gyro_z;
 
 unsigned char who_am_i;
-unsigned short raw_temp;
+signed short raw_temp;
 volatile float celsius; 
 
 void setupFXAS21002(void);
