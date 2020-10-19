@@ -17,7 +17,7 @@ int main (void) {
     servoInit();
     servoAttach(Y_SERVO);
     while(1) {
-
+	servoWriteY(0);
     }	
     return 0;
 }
