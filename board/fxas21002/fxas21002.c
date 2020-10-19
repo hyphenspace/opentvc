@@ -22,7 +22,7 @@ void setupFXAS21002(void) {
 	}
 }
 
-/** This function retrieves the gyroscopes angular rate data. **/
+/** This function retrieves the gyroscope's angular rate data. **/
 void getGyroData(void) {
 		SLAVE_SELECT_GYRO;
 		spi(GYRO_OUT_X_H);

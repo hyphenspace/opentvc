@@ -27,11 +27,22 @@
 #define ACCEL_SENSITIVITY 	1024 // 8g - LSB/g
 #define MAG_SENSITIVITTY	0.1  // μT/LSB
 
-unsigned char who_am_i, ra;
-signed short raw_temp;
+unsigned char accel_x_high, accel_y_high, accel_z_high;
+unsigned char accel_x_low, accel_y_low, accel_z_low;
+
+unsigned char mag_x_high, mag_y_high, mag_z_high;
+unsigned char mag_x_low, mag_y_low, mag_z_low;
+
+volatile short raw_accel_x, raw_accel_y, raw_accel_z;
+volatile short raw_mag_x, raw_mag_y, raw_mag_z;
+
+unsigned char who_am_i;
+volatile short raw_temp;
 volatile float celsius;
 
 void setupFXOS8700CQ(void);
+void getAccelData(void);
+void getMagData(void);
 void getAccelMagTemp(void);
 #endif // FXOS8700CQ_H 
 

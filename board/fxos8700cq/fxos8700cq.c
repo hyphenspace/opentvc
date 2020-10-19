@@ -29,6 +29,71 @@ void setupFXOS8700CQ(void) {
 	} 
 }
 
+/** This function retrieves the accelerometer's G force data. **/
+void getAccelData(void) {
+     SLAVE_SELECT_AM;
+	 spi(ACCEL_OUT_X_H);
+	 accel_x_high = spiRead();
+	 spi(ACCEL_OUT_X_L); 
+     accel_x_low = spiRead();
+	 SLAVE_DESELECT_AM;
+
+	 SLAVE_SELECT_AM;
+     spi(ACCEL_OUT_Y_H);
+	 accel_y_high = spiRead();
+	 spi(ACCEL_OUT_Y_L);
+	 accel_y_low = spiRead();
+	 SLAVE_DESELECT_AM;
+
+     SLAVE_SELECT_AM;
+     spi(ACCEL_OUT_Z_H);
+	 accel_z_high = spiRead();
+	 spi(ACCEL_OUT_Z_L);
+	 accel_z_low = spiRead();
+	 SLAVE_DESELECT_AM;
+
+	 raw_accel_x = (accel_x_high << 8) | accel_x_low;
+	 raw_accel_y = (accel_y_high << 8) | accel_y_low;
+	 raw_accel_z = (accel_z_high << 8) | accel_z_low;
+
+	 printf("Raw x accel: %d\nRaw y accel: %d\nRaw z accel: %d\n", raw_accel_x, raw_accel_y, raw_accel_z);
+	 _delay_ms(100);
+}
+
+/** This function retrieves the magnetometer's magnetic measurement data. **/
+void getMagData(void) {
+    SLAVE_SELECT_AM;
+    spi(MAG_OUT_X_H);
+    mag_x_high = spiRead();
+	spi(MAG_OUT_X_L);
+	mag_x_low = spiRead();
+	SLAVE_DESELECT_AM;
+
+	SLAVE_SELECT_AM;
+    spi(MAG_OUT_Y_H);
+    mag_y_high = spiRead();
+	spi(MAG_OUT_Y_L);
+	mag_y_high = spiRead();
+	SLAVE_DESELECT_AM;
+    
+	SLAVE_SELECT_AM;
+    spi(MAG_OUT_Z_H);
+    mag_z_high = spiRead();
+	spi(MAG_OUT_Z_L);
+	mag_z_low = spiRead();
+	SLAVE_DESELECT_AM;
+
+    raw_mag_x = (mag_x_high << 8) | mag_x_low;
+	raw_mag_y = (mag_y_high << 8) | mag_y_low;
+	raw_mag_z = (mag_z_high << 8) | mag_z_low;
+
+    printf("Raw x mag: %d\nRaw y mag: %d\nRaw z mag: %d\n", raw_mag_x, raw_mag_y, raw_mag_z);
+    _delay_ms(100);
+}
+
+
+
+/** This function retrieves the accelerometer and magnetometer's temperature value in celsius. **/
 void getAccelMagTemp(void) {	
     SLAVE_SELECT_AM;
     spi(AM_TEMP);
