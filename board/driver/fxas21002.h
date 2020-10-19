@@ -10,19 +10,21 @@
 #define GYRO_OUT_X_H  0b10000001 
 #define GYRO_OUT_X_L  0b10000010 
 #define GYRO_OUT_Y_H  0b10000011  
-#define GYRO_OUT_Y_L  0b10000101 
-#define GYRO_OUT_Z_H  0b10000100   
+#define GYRO_OUT_Y_L  0b10000100 
+#define GYRO_OUT_Z_H  0b10000101   
 #define GYRO_OUT_Z_L  0b10000110 
-#define GYRO_TEMP     0b10001101 
+#define GYRO_TEMP     0b10001100 
+#define CTRL_REG0     0b00001101
+
+#define GYRO_SENSITIVITY 62.5 // Angular rate 200 dps
 
 unsigned char gyro_x_high, gyro_y_high, gyro_z_high;
 unsigned char gyro_x_low, gyro_y_low, gyro_z_low;
 unsigned short raw_gyro_x, raw_gyro_y, raw_gyro_z;
-unsigned char who_am_i;
 
+unsigned char who_am_i;
 unsigned short raw_temp;
 volatile float celsius; 
-
 
 void setupFXAS21002(void);
 void getGyroData(void);
