@@ -1,7 +1,7 @@
 #include "../driver/fxos8700cq.h"
 
 /** @defgroup group5 FXOS8700CQ Library
-   *  This library contains all the neccessary code for using the triple axis linear accelerometer and magnetometer from the FXOS8700CQ.
+   *  This library contains all the neccessary code for using the triple-axis linear accelerometer and magnetometer from the FXOS8700CQ.
    *  @{
 */
 
