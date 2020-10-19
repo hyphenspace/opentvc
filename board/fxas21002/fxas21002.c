@@ -49,7 +49,7 @@ void getGyroData(void) {
 		raw_gyro_y = (gyro_y_high << 8) | gyro_y_low;
 		raw_gyro_z = (gyro_z_high << 8) | gyro_z_low;
 
-		printf("Raw X: %d, Raw Y: %d, Raw Z: %d\n", raw_gyro_x, raw_gyro_y, raw_gyro_z);
+		printf("Raw x gyro: %d\nRaw y gyro: %d\nRaw y gyro: %d\n", raw_gyro_x, raw_gyro_y, raw_gyro_z);
 		_delay_ms(100);
 }
 

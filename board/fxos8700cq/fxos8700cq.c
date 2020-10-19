@@ -1,6 +1,6 @@
 #include "../driver/fxos8700cq.h"
 
-/** @defgroup group7 FXOS8700CQ Library
+/** @defgroup group5 FXOS8700CQ Library
    *  This library contains all the neccessary code for using the triple axis linear accelerometer and magnetometer from the FXOS8700CQ.
    *  @{
 */
@@ -104,3 +104,5 @@ void getAccelMagTemp(void) {
 	printf("Raw FXOS8700CQ Temp: %.1f\n", celsius);
 	_delay_ms(100);
 }
+
+/** @} */ // end of group5
