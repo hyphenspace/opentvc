@@ -823,7 +823,7 @@ WARN_LOGFILE           =
 # spaces. See also FILE_PATTERNS and EXTENSION_MAPPING
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  = README.md ../board/lsm9ds1 ../board/servo ../board/usart ../board/driver ../board/spi ../board/time
+INPUT                  = README.md ../board/lsm9ds1 ../board/servo ../board/usart ../board/driver ../board/spi ../board/time ../board/fxos8700cq ../board/fxas21002
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding. Doxygen uses
