@@ -22,6 +22,7 @@
 #define AM_SPI_PORT PORTD
 #define spiRead() spi(0xff)
 
+unsigned char junk;
 void spiInit(void);
 unsigned char spi(unsigned char data);
 
