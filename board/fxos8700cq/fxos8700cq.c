@@ -104,5 +104,4 @@ void getAccelMagTemp(void) {
 	printf("Raw FXOS8700CQ Temp: %.1f\n", celsius);
 	_delay_ms(100);
 }
-
 /** @} */ // end of group5

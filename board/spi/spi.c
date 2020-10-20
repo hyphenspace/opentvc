@@ -1,6 +1,5 @@
 #include "../driver/spi.h"
 
-
 /** @defgroup group2 SPI Library
  *  This library contains all the neccessary code for Serial Peripheral Interface communication.
  *  @{

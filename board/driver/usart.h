@@ -2,6 +2,7 @@
 #ifndef USART_H
 #define USART_H
 
+#include <avr/io.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <util/delay.h>

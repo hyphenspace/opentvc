@@ -1,17 +1,9 @@
 #include "../driver/time.h"
 
-
 /** @defgroup group3 TinyTime Library
  *  This library contains a micros function used for timing events.
  *  @{
  */
-volatile unsigned long timer0_overflow_count = 0;
-volatile unsigned long timer0_millis = 0;
-
-static unsigned char timer0_fract = 0;
-volatile unsigned long m;
-volatile unsigned long f;
-
 
 ISR(TIMER0_OVF_vect) {
     m = timer0_millis;

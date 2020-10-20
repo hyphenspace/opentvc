@@ -1,6 +1,5 @@
 #include "../driver/servo.h"
 
-
 /** @defgroup group1 Servo Library
  *  This library contains all the neccessary code for controlling the two servos needed for pitch and yaw.
  *  @{
@@ -54,3 +53,5 @@ signed long map(signed long angle, unsigned long in_min, unsigned long in_max, u
   value = (angle - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
   return value;
 }
+
+/** @} */ // end of group1
