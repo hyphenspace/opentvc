@@ -13,11 +13,11 @@ This exchage is biodirectional so data can also be sent out from the BLE module 
 ## Running in Docker
 1. Build docker environment
 ```
-docker build -t opentvc:0.4 .
+docker build -t opentvc:0.5 .
 ```
 2. Run docker environment 
 ```
-docker run -it opentvc:0.4
+docker run -it opentvc:0.5
 ```
 3. Change directory to where source file sits
 ```
