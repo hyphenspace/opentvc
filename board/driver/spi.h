@@ -2,7 +2,6 @@
 #define SPI_H
 
 #include <avr/io.h>
-#include "lsm9ds1.h"
 
 #define DDR_SPI DDRB
 #define DD_SCK DDB5
