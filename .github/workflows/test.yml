@@ -2,9 +2,9 @@ name: opentvc tests
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, devel ]
   pull_request:
-    branches: [ master ]
+    branches: [ master, devel ]
 
 jobs:
   build:
@@ -30,4 +30,3 @@ jobs:
           run: docker build -t ahylton/opentvc:latest .
         - name: Push to DockerHub
           run: docker push ahylton/opentvc:latest
-      
