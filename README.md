@@ -2,9 +2,8 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/e863859b-85d2-415b-876f-0b4897d100e2/deploy-status)](https://app.netlify.com/sites/opentvc/deploys)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ## What is opentvc?
-Open thrust vector control (opentvc) is a model rocket flight firmware that is built to runs on the spiral flight computer. \
+Open thrust vector control (opentvc) is a model rocket flight firmware that is built to runs on the hyphen flight computer. \
 The firmware features libaries that supports control for servos, USART, SPI and the on-board hardware. 
-## spiral hardware uses Bluetooth Low Energy
 Data is sent from an AVR microcontroller via UART and received by Nordic nRF5832 BLE module. \
 This exchage is biodirectional so data can also be sent out from the BLE module to AVR microcontroller.
 
