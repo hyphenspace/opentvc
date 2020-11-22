@@ -3,8 +3,7 @@
 
 #include <stdio.h>
 #include <util/delay.h>
-#include <spi.h>
-
+#include "spi.h"
 #define GYRO_STATUS   0b10000000 
 #define WHO_AM_I      0b10001100 
 #define GYRO_OUT_X_H  0b10000001 

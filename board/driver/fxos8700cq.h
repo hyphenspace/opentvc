@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 #include <util/delay.h>
-#include <spi.h>
+#include "spi.h"
 
 #define WHO_AM_I 		0b10001101
 #define AM_TEMP  		0b11010001
