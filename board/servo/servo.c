@@ -26,7 +26,7 @@ void servoWriteY(signed int angle) {
     _delay_ms(10); 
   }
   OCR1A = map(angle, MIN_ANGLE, MAX_ANGLE, MIN_PULSE_WIDTH, MAX_PULSE_WIDTH);
-  _delay_ms(10);
+  _delay_ms(5);
 }
 
 /** This function writes angle values to the Z axis for yaw. */
@@ -40,7 +40,7 @@ void servoWriteZ(signed int angle) {
     _delay_ms(10);  
   }
   OCR1B = map(angle, MIN_ANGLE, MAX_ANGLE, MIN_PULSE_WIDTH, MAX_PULSE_WIDTH);
-  _delay_ms(10);
+  _delay_ms(5);
 }
 /** Flip port bit on to attach servo for usage. */
 void servoAttach(uint16_t port) {
