@@ -8,9 +8,7 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Install AVR dependencies
@@ -18,12 +16,21 @@ jobs:
     - name: Build opentvc firmware
       run: cd board && make 
 
+  unit-test:
+    name: unit test
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@2
+      - name: Retrieve Unity Test API
+        run: cd test && sh get_unity.sh
+      - name: Build and run unit test
+        run: make && ./test_servo
+        
   docker-push:
         name: docker push
         runs-on: ubuntu-18.04
         steps:
         - uses: actions/checkout@v2     
-                   
         - name: Login into DockerHub
           run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
         - name: Build for DockerHub
