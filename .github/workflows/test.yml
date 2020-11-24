@@ -20,7 +20,7 @@ jobs:
     name: unit test
     runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@2
+      - uses: actions/checkout@v2
       - name: Retrieve Unity Test API
         run: cd test && sh get_unity.sh
       - name: Build and run unit test
