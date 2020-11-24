@@ -24,7 +24,7 @@ jobs:
       - name: Retrieve Unity Test API
         run: cd test && sh get_unity.sh
       - name: Build and run unit test
-        run: make && ./test_servo
+        run: cd test && make && ./test_servo
         
   docker-push:
         name: docker push
