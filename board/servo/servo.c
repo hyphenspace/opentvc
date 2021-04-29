@@ -1,6 +1,5 @@
 #include "../driver/servo.h"
 
-
 /** @defgroup group1 Servo Library
  *  This library contains all the neccessary code for controlling the two servos needed for pitch and yaw.
  *  @{
@@ -27,7 +26,7 @@ void servoWriteY(signed int angle) {
     _delay_ms(10); 
   }
   OCR1A = map(angle, MIN_ANGLE, MAX_ANGLE, MIN_PULSE_WIDTH, MAX_PULSE_WIDTH);
-  _delay_ms(10);
+  _delay_ms(5);
 }
 
 /** This function writes angle values to the Z axis for yaw. */
@@ -41,7 +40,7 @@ void servoWriteZ(signed int angle) {
     _delay_ms(10);  
   }
   OCR1B = map(angle, MIN_ANGLE, MAX_ANGLE, MIN_PULSE_WIDTH, MAX_PULSE_WIDTH);
-  _delay_ms(10);
+  _delay_ms(5);
 }
 /** Flip port bit on to attach servo for usage. */
 void servoAttach(uint16_t port) {
@@ -54,3 +53,5 @@ signed long map(signed long angle, unsigned long in_min, unsigned long in_max, u
   value = (angle - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
   return value;
 }
+
+/** @} */ // end of group1

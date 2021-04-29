@@ -2,15 +2,13 @@ name: opentvc tests
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, devel ]
   pull_request:
-    branches: [ master ]
+    branches: [ master, devel ]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Install AVR dependencies
@@ -18,16 +16,24 @@ jobs:
     - name: Build opentvc firmware
       run: cd board && make 
 
+  unit-test:
+    name: unit test
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Retrieve Unity Test API
+        run: cd test && sh get_unity.sh
+      - name: Build and run unit test
+        run: cd test && make && ./test_servo
+        
   docker-push:
         name: docker push
         runs-on: ubuntu-18.04
         steps:
         - uses: actions/checkout@v2     
-                   
         - name: Login into DockerHub
           run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
         - name: Build for DockerHub
           run: docker build -t ahylton/opentvc:latest .
         - name: Push to DockerHub
           run: docker push ahylton/opentvc:latest
-      

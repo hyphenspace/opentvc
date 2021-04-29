@@ -2,25 +2,29 @@
 #define SPI_H
 
 #include <avr/io.h>
-#include "lsm9ds1.h"
 
 #define DDR_SPI DDRB
 #define DD_SCK DDB5
 #define DD_MOSI DDB3
 #define DD_MISO DDB4
-#define DD_SS DDB1
-#define DD_SS_MAG DDB2
-#define SS PB1 // Slave select for gyro and accel
-#define SS_MAG PB2 // Slave select for magnetometer
-#define SLAVE_DESELECT_MAG SPI_PORT |= (1 << SS_MAG)
-#define SLAVE_SELECT_MAG SPI_PORT &= ~(1 << SS_MAG)
-#define SLAVE_DESELECT SPI_PORT |= (1 << SS)
-#define SLAVE_SELECT SPI_PORT &= ~(1 << SS)
-#define SPI_PORT PORTB
-#define spiWrite(data) spi(data) 
+#define DD_SS_GYRO DDD2
+#define DD_SS_AM DDC3
+#define SS_GYRO PD2   // Slave select for gyroscope
+#define SS_AM PC3     // Slave select for acceleromter & magnetometer
+#define GYRO_SPI_PORT PORTC
+#define AM_SPI_PORT PORTD
+
+#define SLAVE_DESELECT_AM AM_SPI_PORT |= (1 << SS_AM)
+#define SLAVE_SELECT_AM AM_SPI_PORT &= ~(1 << SS_AM)
+
+#define SLAVE_DESELECT_GYRO GYRO_SPI_PORT |= (1 << SS_GYRO)
+#define SLAVE_SELECT_GYRO GYRO_SPI_PORT &= ~(1 << SS_GYRO)
+
+#define GYRO_SPI_PORT PORTC
+#define AM_SPI_PORT PORTD
 #define spiRead() spi(0xff)
 
-unsigned char junk, status;
+unsigned char junk;
 void spiInit(void);
 unsigned char spi(unsigned char data);
 

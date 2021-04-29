@@ -12,11 +12,11 @@ This exchage is biodirectional so data can also be sent out from the BLE module 
 ## Running in Docker
 1. Build docker environment
 ```
-docker build -t opentvc:0.4 .
+docker build -t opentvc:0.5 .
 ```
 2. Run docker environment 
 ```
-docker run -it opentvc:0.4
+docker run -it opentvc:0.5
 ```
 3. Change directory to where source file sits
 ```
@@ -36,7 +36,7 @@ int main(void) {
   servoAttach(Z_SERVO);
   while(1) {
     servoWriteY(0); // Write angle 0 to servo controlling Y axis
-    servoWwriteZ(0); // Write angle 0 to servo controlling Z axis
+    servoWriteZ(0); // Write angle 0 to servo controlling Z axis
   }
   return 0;
 }
@@ -47,7 +47,8 @@ int main(void) {
 * doc -- Doxygen documentation folder
 ------
     board
-        ├── lsm9ds1 # Library used for retrieving IMU data.
+        ├── fxas21002 # Library used for retrieving gyroscope data
+        ├── fxos8700cq # Library used for retrieving accelerometer and magnetometer data
         ├── servo # Library used for servo control
         ├── usart # Library used for USART communication
         ├── time # Library used timing events

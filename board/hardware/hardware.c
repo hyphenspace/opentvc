@@ -35,15 +35,4 @@ void greenStatusLED(void) {
   _delay_ms(250);
 }
 
-/** This function enables the registor used for the buzzer and plays an init beep. */
-void initBuzzer(void) {
-  DDRD |= (1 << DDD3);
-  for (int i = 0; i < BEEP_COUNT; i++) {
-    BUZZER_PORT |= (1 <<  BUZZER);
-    _delay_us(1000);
-    BUZZER_PORT &= ~(1 << BUZZER);
-    _delay_us(1000);
-  }
-}
-
 /** @} */ // end of group2

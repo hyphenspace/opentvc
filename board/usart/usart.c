@@ -1,7 +1,4 @@
-#include <avr/io.h>
 #include "../driver/usart.h"
-
-
 
 /** @defgroup group4 USART Library
  *  This library contains all the neccessary code for serial transmission.
